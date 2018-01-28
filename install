@@ -1,10 +1,15 @@
 #!/bin/bash
 
+# TODO Rename the whole recipe to browsing
+
+# TODO move CACHE_DIR to compile file
 CACHE_DIR=$HOME/.cache/configuration
 DEB_PACKAGE=google-chrome-stable_current_amd64.deb
 
+# TODO call a function to initialize a cache directory for buku
 mkdir -p $CACHE_DIR/chrome
 
+# TODO call a function to install a deb from remote file
 if [ ! -f $CACHE_DIR/chrome/$DEB_PACKAGE ]; then
     wget https://dl.google.com/linux/direct/$DEB_PACKAGE -P $CACHE_DIR/chrome
 fi
