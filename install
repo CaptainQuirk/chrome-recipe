@@ -3,10 +3,13 @@
 CACHE_DIR="$HOME/.cache/configuration"
 DEB_PACKAGE=google-chrome-stable_current_amd64.deb
 
-mkdir -p "$CACHE_DIR/chrome"
+if [ ! -x /usr/bin/google-chrome ]; then
+    mkdir -p "$CACHE_DIR/chrome"
+    if [ ! -f "$CACHE_DIR/chrome/$DEB_PACKAGE" ]; then
+        wget https://dl.google.com/linux/direct/$DEB_PACKAGE -P "$CACHE_DIR/chrome"
+    fi
 
-if [ ! -f "$CACHE_DIR/chrome/$DEB_PACKAGE" ]; then
-    wget https://dl.google.com/linux/direct/$DEB_PACKAGE -P "$CACHE_DIR/chrome"
+    sudo dpkg -i "$CACHE_DIR/chrome/$DEB_PACKAGE"
 fi
 
 sudo dpkg -i "$CACHE_DIR/chrome/$DEB_PACKAGE"
