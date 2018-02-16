@@ -1,0 +1,3 @@
+deb "Installing latest chrome"; do
+    uri "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+done
