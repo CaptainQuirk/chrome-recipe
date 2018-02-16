@@ -2,6 +2,7 @@
 
 CACHE_DIR="$HOME/.cache/configuration"
 DEB_PACKAGE=google-chrome-stable_current_amd64.deb
+BROWSE_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ ! -x /usr/bin/google-chrome ]; then
     mkdir -p "$CACHE_DIR/chrome"
