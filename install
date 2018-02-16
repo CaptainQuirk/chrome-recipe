@@ -13,4 +13,19 @@ if [ ! -x /usr/bin/google-chrome ]; then
     sudo dpkg -i "$CACHE_DIR/chrome/$DEB_PACKAGE"
 fi
 
-sudo dpkg -i "$CACHE_DIR/chrome/$DEB_PACKAGE"
+if [ -d "$HOME/Dropbox" ] && [ ! -d "$HOME/Dropbox/.config/google-chrome" ]; then
+    mkdir -p "$HOME/Dropbox/.config/google-chrome"
+    google-chrome --user-data-dir="$HOME/Dropbox/.config/google-chrome" --first-run &
+fi
+
+cp --update "$BROWSE_RECIPE_DIR/files/www.desktop" "$HOME/.local/share/applications/www.desktop"
+cp --update "$BROWSE_RECIPE_DIR/files/icons/www.png" "$HOME/.local/share/icons/www.png"
+
+SIZES=( 16 22 24 32 48 64 96 256 )
+for i in "${SIZES[@]}"
+do
+    sudo cp --update "$BROWSE_RECIPE_DIR/files/icons/${i}x${i}.png" "/usr/share/icons/Mint-Y/apps/${i}/google-chrome.png"
+done
+
+sudo cp --update "$BROWSE_RECIPE_DIR/files/www" /usr/local/bin
+
