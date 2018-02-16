@@ -1,0 +1,8 @@
+[Desktop Entry]
+
+Type=Application
+Version=1.0
+Name=www
+Comment=Chrome instance designed to browse
+Exec=www %u
+Icon=/home/leonard/.local/share/icons/www.png
