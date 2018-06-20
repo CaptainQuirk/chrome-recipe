@@ -29,3 +29,5 @@ done
 
 sudo cp --update "$BROWSE_RECIPE_DIR/files/www" /usr/local/bin
 
+echo "Chrome recipe cooked"
+exit 0
