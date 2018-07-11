@@ -1,3 +1,25 @@
 deb "Installing latest chrome"; do
     uri "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 done
+
+directory "Creating Dropbox config subdirectory"; do
+    path "$HOME/Droppox/.config/google-chrome"
+    parents true
+done
+
+code "Launching google chrome for the first time"; do
+    code "google-chrome --user-data-dir="$HOME/Dropbox/.config/google-chrome" --first-run &"
+done
+
+file "Copying icon for www"; do
+    source "$RECIPE_DIR/files/www.png"
+    path "$HOME/.local/share/icons/www.png"
+    update true
+done
+
+file "Copying .desktop file for www"; do
+    source "$RECIPE_DIR/files/www.desktop"
+    path "$HOME/.local/share/applications/www.desktop"
+    update true
+done
+
