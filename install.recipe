@@ -24,3 +24,9 @@ file "Copying .desktop file for www"; do
     update true
 done
 
+file "Copying binary file for www"; do
+    source "$RECIPE_DIR/files/www"
+    path "/usr/local/bin/www"
+    sudo true
+    update true
+done
