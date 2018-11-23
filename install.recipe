@@ -13,7 +13,7 @@ code "Launching google chrome for the first time"; do
 done
 
 file "Copying icon for www"; do
-    source "$RECIPE_DIR/files/www.png"
+    source "$RECIPE_DIR/files/icons/www.png"
     path "$HOME/.local/share/icons/www.png"
     update true
 done
