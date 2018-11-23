@@ -1,9 +1,10 @@
 deb "Installing latest chrome"; do
     uri "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    if-not-installed "google-chrome"
 done
 
 directory "Creating Dropbox config subdirectory"; do
-    path "$HOME/Droppox/.config/google-chrome"
+    path "$HOME/Dropbox/.config/www"
     parents true
 done
 
